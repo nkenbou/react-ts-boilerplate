@@ -17,11 +17,11 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: [".js", ".ts", ".tsx", ".json", ".mjs", ".wasm"],
+    extensions: [".wasm", ".mjs", ".js", ".json", ".ts", ".tsx"],
   },
   plugins: [
     new HTMLPlugin({
-      template: path.join(__dirname, "src/index.html"),
+      template: path.resolve(__dirname, "src/index.html"),
     }),
     new WorkerPlugin(),
   ],
