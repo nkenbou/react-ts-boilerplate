@@ -5,8 +5,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "webpack --mode production",
-    "start": "webpack-dev-server --open --mode:development",
+    "build": "webpack --mode development",
+    "start": "webpack-dev-server --open --mode development",
     "type-check": "tsc -p . --noEmit",
     "lint": "eslint .",
     "eslint-prettier-check": "eslint --print-config src/index.js | eslint-config-prettier-check"
