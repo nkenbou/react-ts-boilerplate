@@ -5,6 +5,7 @@ const path = require("path");
 const outputPath = path.resolve(__dirname, "dist");
 
 module.exports = {
+  // devtool: "eval-source-map",
   mode: process.env.NODE_ENV || "development",
   entry: {
     main: [path.join(__dirname, "src", "index.tsx")],
