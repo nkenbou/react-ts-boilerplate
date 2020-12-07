@@ -1,4 +1,5 @@
-const HTMLPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const HTMLWebpackPlugin = require("html-webpack-plugin");
 const WorkerPlugin = require("worker-plugin");
 const path = require("path");
 
@@ -52,7 +53,8 @@ module.exports = {
     historyApiFallback: true,
   },
   plugins: [
-    new HTMLPlugin({
+    new CleanWebpackPlugin(),
+    new HTMLWebpackPlugin({
       template: path.resolve(__dirname, "src/index.html"),
     }),
     new WorkerPlugin(),
