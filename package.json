@@ -7,8 +7,15 @@
   "scripts": {
     "build": "webpack --mode development",
     "start": "webpack-cli serve --open --mode development",
-    "type-check": "tsc -p . --noEmit",
-    "lint": "eslint .",
+    "lint": "run-p -l -c --aggregate-output lint:*",
+    "lint:eslint": "eslint .",
+    "lint:prettier": "prettier --check .",
+    "lint:tsc": "tsc -p . --noEmit",
+    "fix": "run-s fix:prettier fix:eslint",
+    "fix:eslint": "yarn lint:eslint --fix",
+    "fix:prettier": "yarn lint:prettier --write",
+    "test": "run-p -l -c --aggregate-output lint:* unit",
+    "unit": "jest",
     "eslint-prettier-check": "eslint --print-config src/index.js | eslint-config-prettier-check"
   },
   "devDependencies": {
@@ -24,6 +31,7 @@
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
     "html-webpack-plugin": "^4.5.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.1.2",
     "ts-loader": "^8.0.9",
     "typescript": "^4.0.5",
